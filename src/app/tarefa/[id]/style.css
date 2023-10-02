@@ -1,0 +1,30 @@
+@keyframes alert-active {
+    0%{ transform: translateY(0px);}
+    100%{ transform: translateY(200px);}
+}
+
+@keyframes alert-innactive {
+    0%{transform: translateY(200px);}
+    100%{transform: translateY(-200px);}
+}
+
+.save-alert{
+    position: absolute;
+    top: -50px;
+    transition: 2s;
+}
+
+.save-alert.no-animation{
+    animation: none;
+}
+
+.save-alert.active{
+    animation: alert-active 1s linear forwards;
+
+    
+}
+
+.save-alert.innactive{
+    animation: alert-innactive 1s linear forwards;
+}
+
