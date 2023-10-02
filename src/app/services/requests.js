@@ -1,10 +1,10 @@
 import axios from "axios";
 import { headers } from "../../../next.config";
 
-const backend = 'http://zebuseta.pythonanywhere.com/apiv1'
+const backend = 'https://zebuseta.pythonanywhere.com/apiv1'
 
 export function getTarefas(){
-    return fetch(`http://zebuseta.pythonanywhere.com/apiv1/tarefas/`,{
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/`,{
         method:'GET',
         headers:{
             'Content-Type': 'Application/JSON',
@@ -15,7 +15,7 @@ export function getTarefas(){
 }
 
 export function getTarefa(id){
-    return fetch(`http://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}`,{
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}`,{
         method:'GET',
         headers:{
             'Content-Type': 'Application/JSON',
@@ -27,7 +27,7 @@ export function getTarefa(id){
 
 
 export function alterTarefa(id, tarefa){
-    return fetch(`http://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}/`,{
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}/`,{
         method:'PUT',
         headers:{
             'Content-Type':'Application/JSON',
@@ -44,7 +44,7 @@ export function alterTarefa(id, tarefa){
 }
 
 export function postTarefa(tarefa){
-    return fetch(`http://zebuseta.pythonanywhere.com/apiv1/tarefas/`,{
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/`,{
         method:'POST',
         headers:{
             'Content-Type':'Application/JSON',
@@ -61,7 +61,7 @@ export function postTarefa(tarefa){
 }
 
 export function deleteTarefa(id){
-    return fetch(`http://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}/`,{
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/${id}/`,{
         method:'DELETE',
         headers:{
             'Content-Type': 'Application/JSON',
