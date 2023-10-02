@@ -1,8 +1,3 @@
-import axios from "axios";
-import { headers } from "../../../next.config";
-
-const backend = 'https://zebuseta.pythonanywhere.com/apiv1'
-
 export function getTarefas(){
     return fetch(`https://zebuseta.pythonanywhere.com/apiv1/tarefas/`,{
         method:'GET',
