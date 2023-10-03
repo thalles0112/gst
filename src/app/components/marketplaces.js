@@ -41,9 +41,9 @@ export default function Marketplaces({marketplace}){
 
             <h1>Anúncios por Marketplace</h1>
             <ul className='flex justify-evenly'>
-                {marketplaceData.marketplaces && marketplaceData.marketplaces.map(_marketplace=>{
+                {marketplaceData.marketplaces && marketplaceData.marketplaces.map((_marketplace, idx)=>{
                     return(
-                        <li className='text-center border rounded p-2 h-20 w-24'>
+                        <li key={idx} className='text-center border rounded p-2 h-20 w-24'>
                             <div>{_marketplace.title}</div>
                             <div>{_marketplace.anuncios}</div>
                         </li>
