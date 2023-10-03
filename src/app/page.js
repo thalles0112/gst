@@ -1,17 +1,27 @@
 'use client'
 import { useEffect, useState } from "react"
-import { getTarefas } from "./services/requests"
+import { getMarketplaces, getTarefas } from "./services/requests"
 import Tarefa from "./components/tarefa"
 import Link from "next/link"
 import { produce } from "immer"
+import Marketplaces from "./components/marketplaces"
+
+
 
 export default function Home() {
   const [tarefas, setTarefas] = useState([])
+  const [marketplace, setMarketplace] = useState({})
+  
   useEffect(()=>{
     async function get(){
       const resp = await getTarefas()
+      const mktp_resp = await getMarketplaces(new Date().toISOString().split('T')[0])
       if (resp){
         setTarefas(resp)
+      }
+      if(mktp_resp){
+        
+        setMarketplace(mktp_resp)
       }
     }
     get()
@@ -30,8 +40,11 @@ export default function Home() {
     <main className="flex justify-center items-center	w-full">
       <div className="flex w-10/12 justify-between items-center">
         <div className="w-7-12 ">
+          <div className="flex justify-between items-center">
+            <h1>Lista de tarefas</h1> 
+            <Link className="border p-2" href={'/tarefa/new'} >Nova Tarefa</Link>
+          </div>
           
-          <h1>Lista de tarefas</h1>
           <ul className="tarefas-list">
 
           
@@ -48,7 +61,12 @@ export default function Home() {
         
         
         <div className="w-5/12 ">
-          <Link className="border p-5" href={'/tarefa/new'} >Nova Tarefa</Link>
+          <h1>Anuncios Por marketplace</h1>
+          
+          <Marketplaces marketplace={marketplace}/>
+          
+          
+          
         </div>
         
       </div>

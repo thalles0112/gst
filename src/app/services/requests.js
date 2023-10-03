@@ -65,3 +65,39 @@ export function deleteTarefa(id){
     })
     
 }
+
+
+
+
+
+export function getMarketplaces(date){
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/get-marketplaces/?date=${date}`,{
+        method:'GET',
+        headers:{
+            'Content-Type': 'Application/JSON',
+            'Accept': 'Application/JSON'
+        }
+    }).then(resp=>resp.json())
+}
+
+export function getAllMarketplaces(){
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/all-marketplaces`,{
+        method:'GET',
+        headers:{
+            'Content-Type': 'Application/JSON',
+            'Accept': 'Application/JSON'
+        }
+    }).then(resp=>resp.json())
+}
+
+export function postMarkeplace(markeplace){
+    return fetch(`https://zebuseta.pythonanywhere.com/apiv1/marketplaces/`,{
+        method:'POST',
+        headers:{
+            'Content-Type':'Application/JSON',
+            'Accept':'Application/JSON'
+        },
+        body: JSON.stringify(markeplace)
+    }).then(resp=>resp.json())
+    
+}
