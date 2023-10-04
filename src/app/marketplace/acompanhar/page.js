@@ -15,14 +15,14 @@ export default function Acompanhar(){
     },[])
     return(
     <div className='w-full flex flex-col items-center my-5 '>
-        {resp.map(date=>{
+        {resp.map((date,index)=>{
             return(
-                <div className="card m-2 w-10/12">
+                <div key={index} className="card m-2 w-10/12">
                     <h1>{date.date.split('-')[2]}/{date.date.split('-')[1]}/{date.date.split('-')[0]}</h1>
                     <div className='flex'>
-                        {date.marketplaces && date.marketplaces.map(markteplace=>{
+                        {date.marketplaces && date.marketplaces.map((markteplace, idx)=>{
                             return(
-                                <div className='card border w-24 m-2 text-center'>
+                                <div key={idx} className='card border w-24 m-2 text-center'>
                                     <p>{markteplace.title}</p>
                                     <p>{markteplace.anuncios}</p>
                                 </div>
