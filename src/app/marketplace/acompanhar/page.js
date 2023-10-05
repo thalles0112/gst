@@ -20,7 +20,7 @@ export default function Acompanhar(){
                 <div key={index} className="card m-2 w-10/12">
                     <h1>{date.date.split('-')[2]}/{date.date.split('-')[1]}/{date.date.split('-')[0]}</h1>
                     <div className='flex'>
-                        {date.marketplaces && date.marketplaces.map((markteplace, idx)=>{
+                        {date.marketplaces && date.marketplaces.sort((a, b)=>a.title.localeCompare(b.title)).map((markteplace, idx)=>{
                             return(
                                 <div key={idx} className='card border w-24 m-2 text-center'>
                                     <p>{markteplace.title}</p>
